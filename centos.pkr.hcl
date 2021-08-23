@@ -28,15 +28,15 @@ source "azure-arm" "CentOS" {
 build {
   sources = ["source.azure-arm.CentOS"]
 
-  provisioner "shell" "EnableRepo" {
+  provisioner "shell" {
     inline          = [ "sudo yum -y install epel-release"]
   }
   
-    provisioner "shell" "InstallUpdate" {
+    provisioner "shell"  {
     inline          = [ "sudo yum -y install nginx htop nmon", "yum -y update"]
   }
 
-  provisioner "shell" "CleanUp" {
+  provisioner "shell"  {
     inline          = ["sudo /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"]
   }
 }
