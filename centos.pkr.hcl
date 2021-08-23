@@ -35,8 +35,10 @@ build {
     provisioner "shell"  {
     inline          = [ "sudo yum -y install nginx htop nmon", "sudo yum -y update"]
   }
-
-  provisioner "shell"  {
+    provisioner "shell"  {
+    inline          = [ "sudo timedatectl set-timezone Europe/Athens"]
+  }
+    provisioner "shell"  {
     inline          = ["sudo /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"]
   }
 }
