@@ -11,8 +11,8 @@ source "azure-arm" "CentOS" {
     Owner = "i.giannakopoulos"
     task  = "Image deployment"
   }
-  client_id                         = "$client_id"
-  client_secret                     = "$client_secret"
+  client_id                         = "${var.client_id}"
+  client_secret                     = "${var.client_secret}"
   image_offer                       = "CentOS"
   image_publisher                   = "OpenLogic"
   image_sku                         = "7_9-gen2"
@@ -20,8 +20,8 @@ source "azure-arm" "CentOS" {
   managed_image_name                = "myPackerImageDEMO"
   managed_image_resource_group_name = "igiannak-rg"
   os_type                           = "Linux"
-  subscription_id                   = "$subscription_id"
-  tenant_id                         = "$tenant_id"
+  subscription_id                   = "${var.subscription_id}"
+  tenant_id                         = "${var.tenant_id}"
   vm_size                           = "Standard_DS2_v2"
 }
 
@@ -39,5 +39,21 @@ build {
   provisioner "shell"  {
     inline          = ["sudo /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"]
   }
+}
+
+variable "client_id" {
+  type    = string
+}
+
+variable "client_secret" {
+ type = string
+}
+
+variable "subscription_id" {
+ type = string
+}
+
+variable "tenant_id" {
+ type = string
 }
 
