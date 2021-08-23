@@ -33,7 +33,7 @@ build {
   }
   
     provisioner "shell" "InstallUpdate" {
-    inline          = [ "sudo yum -y install nginx htop nmon", yum -y update"]
+    inline          = [ "sudo yum -y install nginx htop nmon", "yum -y update"]
   }
 
   provisioner "shell" "CleanUp" {
