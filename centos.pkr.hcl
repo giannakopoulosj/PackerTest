@@ -18,7 +18,7 @@ source "azure-arm" "CentOS" {
   image_sku                         = "7_9-gen2"
   location                          = "West Europe"
   managed_image_name                = "myPackerImageDEMO"
-  managed_image_resource_group_name = "igiannak-rg"
+  managed_image_resource_group_name = "iac-rg"
   os_type                           = "Linux"
   subscription_id                   = "${var.subscription_id}"
   tenant_id                         = "${var.tenant_id}"
