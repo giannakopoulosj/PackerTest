@@ -33,7 +33,7 @@ build {
   }
   
     provisioner "shell"  {
-    inline          = [ "sudo yum -y install nmon", "sudo yum -y update"]
+    inline          = [ "sudo yum -y install nmon htop", "sudo yum -y update"]
   }
     provisioner "shell"  {
     inline          = [ "sudo timedatectl set-timezone Europe/Athens"]
